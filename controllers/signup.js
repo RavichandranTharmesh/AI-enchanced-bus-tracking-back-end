@@ -40,7 +40,6 @@ exports.postSignup = async (req, res) => {
     });
 };
 
-
 exports.findUser = async (req, res) => {
 
     try {
@@ -50,7 +49,26 @@ exports.findUser = async (req, res) => {
 
         blogs.map((item) => {
             if (item.username === req.params.id) {
-                findArray.push(item.password)
+                findArray.push(item)
+            }
+        });
+
+        res.json(findArray)
+
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+};
+
+exports.findByNicSignup = async (req, res) => {
+
+    try {
+        const blogs = await SignupModel.find();
+        const findArray = [];
+
+        blogs.map((item) => {
+            if (item.nic === req.params.id) {
+                findArray.push(item)
             }
         });
 
