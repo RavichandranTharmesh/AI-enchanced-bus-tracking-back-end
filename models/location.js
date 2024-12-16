@@ -1,24 +1,8 @@
 const mongoose = require('mongoose');
 
-const ReserveSchema = mongoose.Schema({
+const LocationSchema = mongoose.Schema({
 
-    ic: {
-        type: String,
-        required: true
-    },
     busnumber: {
-        type: String,
-        required: true
-    },
-    startplace: {
-        type: String,
-        required: true
-    },
-    from: {
-        type: String,
-        required: true
-    },
-    to: {
         type: String,
         required: true
     },
@@ -38,11 +22,15 @@ const ReserveSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    status: {
+    lastupdate: {
         type: String,
         required: true
     },
+    status: {
+        type: String,
+        required: true
+    }
    
 })
 
-module.exports = mongoose.model('reserve', ReserveSchema)
+module.exports = mongoose.model('location', LocationSchema)

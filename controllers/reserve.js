@@ -4,7 +4,7 @@ exports.postReserve = async (req, res) => {
 
     const { ic } = req.body;
     const { busnumber } = req.body;
-    const { busname } = req.body;
+    const { startplace } = req.body;
     const { from } = req.body;
     const { to } = req.body;
     const { date } = req.body;
@@ -14,7 +14,7 @@ exports.postReserve = async (req, res) => {
     const { status } = req.body;
 
     const blog = new ReserveModel({
-        ic, busnumber, busname, from, to, date, time, lat, lng, status
+        ic, busnumber, startplace, from, to, date, time, lat, lng, status
     });
 
     const createdBlog = await blog.save();
